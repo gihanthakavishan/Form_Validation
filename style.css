@@ -36,7 +36,12 @@
 .signup-body p{
     margin-top: 20px;
 }
-    
+ 
+.signup-body p{
+    font-size: 18px;
+    font-weight: 600;
+    color: chartreuse;
+}
 
 .signup-body p label{
     font-size: 18px;
