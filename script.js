@@ -6,7 +6,7 @@ const passError = document.getElementById('passError');
 submitBtn.addEventListener('click',(e)=>{
    e.preventDefault();
 
-   if(validateName() && validateEmail){
+   if( validateName() && validateEmail()&& validatePassword()){
       alert("Form submitted Successfully");
    }
 });
@@ -26,7 +26,7 @@ if(!name.match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)){
 }
     nameError.innerHTML = "";
     nameError.previousElementSibling.classList.add('fa-check');
-    // return true;
+     return true;
 }
 
 function validateEmail(){
@@ -44,5 +44,24 @@ if(!email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-
 }
     emailError.innerHTML = "";
     emailError.previousElementSibling.classList.add('fa-check');
+    return true;
+}
+
+function validatePassword(){
+   let password = document.getElementById('password').value;
+
+    if(password.length == 0){
+        
+         passError.innerHTML = "Enter a Strong Password"
+         passError.previousElementSibling.classList.add('fa-xmark');
+         return false;
+    }
+if(!password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,24}$/)){
+    passError.innerHTML = "Password should conatian 1 Uppercase, 1 Lowercase,1 Digit & Alphabet";
+    passError.previousElementSibling.classList.add('fa-xmark');
+    return false;
+}
+    passError.innerHTML = "";
+    passError.previousElementSibling.classList.add('fa-check');
     return true;
 }
