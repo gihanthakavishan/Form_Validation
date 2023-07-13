@@ -1,5 +1,7 @@
 const submitBtn = document.getElementById('submitBtn');
 const nameError = document.getElementById('nameError');
+const emailError = document.getElementById('emailError');
+const passError = document.getElementById('passError');
 
 submitBtn.addEventListener('click',(e)=>{
    e.preventDefault();
@@ -24,7 +26,7 @@ if(!name.match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)){
 }
     nameError.innerHTML = "";
     nameError.previousElementSibling.classList.add('fa-check');
-    return true;
+    // return true;
 }
 
 function validateEmail(){
